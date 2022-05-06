@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function* SimpleGenerator() {
+        console.log("Started..");
+        var returnedValue = yield 10; // pause and returned
+        console.log(returnedValue);
+        console.log("After yield..");
+        yield 30;
+        console.log("After another yield..");
+        return 40;
+      }
+
+      var itr = SimpleGenerator();
+      console.log(itr.next());
+      console.log("Back to script Execution !");
+      console.log(itr.next(20));
+      console.log(itr.next());
+    </script>
+  </head>
+  <body></body>
+</html>

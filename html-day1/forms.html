@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function SubmitHandler(e) {
+        e.preventDefault(); //prevent the browser from reloading the page !
+        console.log("Make ajax request here..");
+      }
+
+      function SubmitTheForm() {
+        var userForm = document.getElementById("userForm");
+        userForm.submit();
+      }
+    </script>
+  </head>
+  <body>
+    <form id="userForm" action="Handler.php" onsubmit="SubmitHandler(event)">
+      <label
+        >Name : <input type="text" name="uname" id="txtName" required />
+      </label>
+      <br />
+      <label>Email : <input type="email" name="email" id="txtEmail" /> </label>
+      <br />
+      <input type="button" value="Submit" onclick="SubmitTheForm()" />
+      <!-- <button>Submit</button> -->
+    </form>
+  </body>
+</html>

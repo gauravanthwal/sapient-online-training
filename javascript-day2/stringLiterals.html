@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var multiLineStr = `First Line !
+        Second Line !
+        Last Line !`;
+      console.log(multiLineStr);
+
+      // Tagged Templates - validations/sanitization/modifications
+
+      var product = { title: "Laptop", price: 100000 };
+
+      //console.log(`The product ${product.title} costs ${product.price} !`);
+
+      function TaggedTemplates(taggedStrings, titleExp, priceExp) {
+        let currency = null;
+        if (priceExp > 80000) {
+          currency = "Rs.";
+        } else {
+          currency = "$.";
+        }
+        let [firstTag, secondTag, thirdTag] = taggedStrings;
+        console.log(
+          `${firstTag}${titleExp}${secondTag}${currency}${priceExp}${thirdTag}`
+        );
+      }
+
+      TaggedTemplates`The product ${product.title} costs ${product.price} !`;
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.2/css/bootstrap.css"
+      integrity="sha512-UV7yPGuCU0VV5c0TCJaKYmvxXC+aha8XaVjlumPUn/kh8UnRM2DVVXgQRCViN7qb55xsipU9pPJ1nkMsdymveg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="getPosts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      let thePromise = GetPosts();
+      thePromise.then(
+        function (response) {
+          var posts = response.data;
+          var postList = document.querySelector("#postList");
+          for (const post of posts) {
+            var newLi = document.createElement("li");
+            newLi.innerText = post.title;
+            newLi.className = "list-group-item";
+            postList.appendChild(newLi);
+          }
+        },
+        function (err) {
+          console.log(err);
+        }
+      );
+      console.log("Program Ended");
+    </script>
+  </head>
+  <body class="container">
+    <header>
+      <h1>All Posts</h1>
+    </header>
+    <ul id="postList" class="list-group"></ul>
+  </body>
+</html>

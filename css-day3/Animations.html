@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .animated {
+        /* background-color: lightblue; */
+        border: 2px solid grey;
+        border-radius: 10px;
+        height: 200px;
+        width: 200px;
+        margin: 100px;
+        padding: 10px;
+        /* animation: name duration timing-function delay iteration-count direction fill-mode;  */
+        animation-name: simpleAnimation;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        position: relative;
+      }
+      @keyframes simpleAnimation {
+        /* from {
+          background-color: orange;
+        }
+        to {
+          background-color: lightcoral;
+        } */
+        25% {
+          background-color: orange;
+        }
+        50% {
+          background-color: blue;
+          left: 0px;
+          top: 400px;
+        }
+        75% {
+          background-color: blue;
+          left: 400px;
+          top: 0px;
+          transform: scale(1.5);
+        }
+        100% {
+          background-color: lightgreen;
+          left: 0px;
+          top: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="animated">Animated !</div>
+  </body>
+</html>

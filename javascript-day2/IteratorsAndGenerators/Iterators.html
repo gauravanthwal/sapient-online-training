@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var cars = ["BMW", "AUDI", "FERRARI"];
+      //   for (const car of cars) {
+      //     console.log(car);
+      //   }
+
+      var iterator = cars[Symbol.iterator]();
+      //   console.log(iterator.next());
+      //   // 100 lines of code !
+      //   console.log(iterator.next());
+      //   console.log(iterator.next());
+      //   console.log(iterator.next());
+
+      var player = {
+        name: "Deepika Kumari",
+        sport: "Archery",
+        country: "India",
+        [Symbol.iterator]() {
+          let index = 0;
+          let values = Object.values(this);
+          return {
+            next() {
+              if (index < values.length) {
+                let value = values[index];
+                index++;
+                return {
+                  value: value,
+                  done: false,
+                };
+              } else {
+                return {
+                  value: "Done !",
+                  done: true,
+                };
+              }
+            },
+          };
+        },
+      };
+
+      //   for (const p of player) {
+      //     console.log(p);
+      //   }
+
+      var itr = player[Symbol.iterator]();
+      console.log(itr.next().value);
+      console.log(itr.next().value);
+      console.log(itr.next().value);
+      console.log(itr.next().value);
+      console.log(itr.next().value);
+      console.log(itr.next().value);
+
+
+    </script>
+  </head>
+  <body></body>
+</html>

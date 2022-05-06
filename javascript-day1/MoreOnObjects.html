@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   Math.PI = 3.1455555;
+      //   console.log(Math.PI);
+      //   console.log(Math.PI);
+
+      //   var book = { title: "Wings Of Fire", author: "Dr. APJ Abdul Kalam" };
+      //   for (var key in book) {
+      //     console.log(book[key]);
+      //   }
+
+      var book = {};
+      //   Object.defineProperty(book, "id", {
+      //     value: 1,
+      //   });
+      //   Object.defineProperty(book, "title", {
+      //     value: "Wings Of Fire",
+      //     writable: true,
+      //     enumerable: true,
+      //   });
+
+      //   Object.defineProperty(book, "author", {
+      //     value: "Dr. APJ Abdul Kalam",
+      //     enumerable: true,
+      //   });
+
+      Object.defineProperties(book, {
+        id: {
+          value: 1,
+        },
+        title: {
+          value: "Wings Of Fire",
+          writable: true,
+        },
+      });
+
+      for (var key in book) {
+        console.log(book[key]);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

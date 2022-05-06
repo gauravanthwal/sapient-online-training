@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var largeArray = [];
+      function HeavyLifting() {
+        for (let i = 0; i < 7000; i++) {
+          largeArray[i] = [];
+          for (let j = 0; j < 6000; j++) {
+            largeArray[i][j] = Math.random();
+          }
+        }
+        console.log(largeArray[3000][3000]);
+      }
+
+      function Handler() {
+        console.log("U Clicked !");
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="HeavyLifting()">Do Heavy Lifting !</button
+    ><button onclick="Handler()">Click !</button>
+  </body>
+</html>

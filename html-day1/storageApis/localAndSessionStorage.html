@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function StoreData() {
+        let city = document.querySelector("#txtCity").value;
+        let state = document.querySelector("#txtState").value;
+
+        if (window.localStorage) {
+          //   localStorage[city] = state;
+          //   localStorage.setItem(city, state);
+          //   sessionStorage.setItem(city, state);
+          var cityDetails = { city: city, state: state, country: "INDIA" };
+          localStorage[city] = JSON.stringify(cityDetails);
+        }
+      }
+
+      function RetreiveData() {
+        let city = document.querySelector("#txtCity").value;
+        // console.log(localStorage[city]);
+        // console.log(localStorage.getItem(city));
+        // console.log(sessionStorage.getItem(city));
+        console.log(localStorage[city]);
+      }
+    </script>
+  </head>
+  <body>
+    <label>City : <input type="text" id="txtCity" /> </label> <br />
+    <label>State : <input type="text" id="txtState" /> </label> <br />
+    <button onclick="StoreData()">Store</button>
+    <button onclick="RetreiveData()">Retreive</button>
+  </body>
+</html>

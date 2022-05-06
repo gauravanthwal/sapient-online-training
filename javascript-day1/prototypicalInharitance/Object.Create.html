@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var o = Object.create(null);
+
+      var person = { name: "Nadal", sport: "Tennis" };
+      var player = Object.create(person);
+      person.name = "Rafael Nadal";
+      player.titlesWon = 22;
+
+      for (var key in player) {
+        console.log(key);
+      }
+
+      function Car() {
+        this.name = "BMW";
+        this.speed = 200;
+      }
+
+      Car.prototype = { carModel: "NGex", carMake: 2000 };
+
+      var carObj = new Car();
+    </script>
+  </head>
+  <body></body>
+</html>

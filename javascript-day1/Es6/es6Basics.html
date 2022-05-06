@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      //   let x = 100;
+      //   var y = 200;
+
+      //   if (true) {
+      // let x;
+      //   x = 100;
+      // 100 lines of code
+      // let x = 200; // error
+      // console.log(x);
+      //   }
+
+      const PI = 3.14;
+      // PI = 4.23232;// Error !
+
+      const company = { name: "Sapient", location: "Gurugram" };
+      //   company = {}; // Error
+      company.name = "Pubicis Sapient";
+
+      // Spread Operator - With Objects And Arrays
+
+      //   var person = { name: "Nadal", sport: "Tennis" };
+      //   var player = { ...person, titlesWon: 22, sport: "Lawn Tennis" };
+      //   person.name = "R Nadal";
+
+      // with arrays
+      //   var cars = ["BMW", "AUDI", "FERARRI"];
+      //   var moreCars = ["TATA", "MAHINDRA"];
+      //   var allCars = [...cars, ...moreCars];
+
+      // Destructuring - With Arrays and Objects
+
+      //   var cars = ["BMW", "AUDI", "FERARRI"];
+      //   var [firstCar, , secondCar, thirdCar = "TATA"] = cars;
+
+      var player = {
+        name: "Nadal",
+        language: "Spanish",
+        sport: "Tennis",
+        stats: {
+          titlesWon: 21,
+          worldRanking: 4,
+        },
+      };
+
+      //   var {
+      //     name,
+      //     sport,
+      //     stats: { worldRanking },
+      //   } = player;
+
+      //   var { name: PlayerName } = player; // aliasing
+
+      var { name, sport, ...restOfTheProperties } = player; // Rest Properties
+
+      function PrintPlayer({ name, stats: { titlesWon } }) {
+        console.log(
+          "The player " + name + " has won " + titlesWon + " titles !"
+        );
+      }
+
+      PrintPlayer(player);
+
+      // Functions
+
+      //   // Default paremeters
+      //   function PrintBook(
+      //     author = "Unknown",
+      //     title = "Unknown",
+      //     publisher = "Unknown"
+      //   ) {
+      //     // author = author || "Unknown";
+      //     // title = title || "Unknown";
+      //     // publisher = publisher || "Unknown";
+      //     console.log(author, title, publisher);
+      //   }
+
+      //   PrintBook();
+      //   PrintBook(undefined, "XYZ", "PQR");
+      //   PrintBook("Sachin Tendulkar", "Playing It My Way", "Printwell");
+      //   PrintBook("Dr. APJ Abdul Kalam", "India 2020", "Jayco");
+
+      // Rest Parameters
+
+      function PrintBook(author, ...titles) {
+        console.log(author, titles);
+      }
+
+      PrintBook("Ranjit Desai", "Shriman Yogi", "Swami");
+      PrintBook("Sachin Tendulkar", "Playing It My Way");
+      PrintBook("Unknown");
+
+      // Arrow Functions
+
+      var Add = function (x, y) {
+        return x + y;
+      };
+
+      var Add = (x, y) => {
+        return x + y;
+      };
+
+      var Add = (x, y) => x + y;
+
+      var Square = (x) => x * x;
+
+      var Print = () => console.log("Printed !");
+
+      var cars = ["BMW", "AUDI", "FERARRI"];
+      cars.forEach(function (car) {
+        console.log(car);
+      });
+
+      cars.forEach((car) => console.log(car));
+
+      function Employee() {
+        this.salary = 300000;
+        var _this = this;
+        setTimeout(function () {
+          console.log(_this.salary);
+        }, 3000);
+      }
+
+      function Employee() {
+        this.salary = 300000;
+        setTimeout(() => console.log(this.salary), 3000);
+      }
+      var emp = new Employee();
+
+      var EmpArrow = () => {
+        this.salary = 400000;
+      };
+
+      EmpArrow();
+    </script>
+  </head>
+  <body></body>
+</html>

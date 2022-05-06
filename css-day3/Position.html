@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .positioned {
+        background-color: lightblue;
+        border: 2px solid grey;
+        border-radius: 10px;
+        height: 200px;
+        width: 200px;
+        padding: 10px;
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        z-index: 1;
+      }
+      .anotherpositioned {
+        background-color: lightgreen;
+        border: 2px solid grey;
+        border-radius: 10px;
+        height: 200px;
+        width: 200px;
+        padding: 10px;
+        position: absolute;
+        left: 200px;
+        top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="positioned">Positioned !</div>
+    <div class="anotherpositioned">Another Positioned !</div>
+
+    <input type="text" />
+    <input type="text" />
+    <input type="text" />
+  </body>
+</html>

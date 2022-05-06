@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      //   function CreateInstance() {
+      //     return {
+      //       name: "HTML5",
+      //       category: "Web Dev",
+      //     };
+      //   }
+
+      //   var obj = CreateInstance();
+      //   var obj1 = CreateInstance();
+      //   obj1.name = "CSS3";
+
+      let singleTon = (function () {
+        let instance = null;
+        function CreateInstance() {
+          return {
+            name: "HTML5",
+            category: "Web Dev",
+          };
+        }
+
+        return {
+          getInstance: function () {
+            if (!instance) {
+              instance = CreateInstance();
+            }
+            return instance;
+          },
+        };
+      })();
+
+      var o = singleTon.getInstance();
+      var obj = singleTon.getInstance();
+      obj.name = "CSS3";
+    </script>
+  </head>
+  <body></body>
+</html>

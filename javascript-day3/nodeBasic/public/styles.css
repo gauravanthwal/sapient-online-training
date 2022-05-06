@@ -1,0 +1,37 @@
+body,html {
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.courses {
+  color: rgb(64, 63, 63);
+}
+
+.card{
+    width: 17rem;
+    margin: .5rem;
+    padding: .5rem;
+}
+.like-btn{
+    background: #5a1aadde;
+    display: inline-block;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: .3rem .5rem;
+    color: #fff;
+    width: 100px;
+}
+
+.fa-star{
+    color: #5a1aadde;
+}
+.btn{
+  display: inline-block;
+}
+.new-course-btn{
+  width: 200px;
+  margin: 0 auto;
+}

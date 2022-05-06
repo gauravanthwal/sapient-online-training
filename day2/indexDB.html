@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <form>
+        <label>Id : <input type="text" id="txtId" /> </label> <br />
+        <label>Name : <input type="text" id="txtName" /> </label> <br />
+        <label>Theatre : <input type="text" id="txtTheatre" /> </label> <br />
+        <label>Budget : <input type="text" id="txtBudget" /> </label> <br />
+        <button type="button" id="btnStoreMovie">Store Movie !</button>
+        <button type="button" id="btnRetreiveMovie" onclick="RetreiveMovie()">
+          Retreive Movie !
+        </button>
+      </form>
+    </main>
+
+    <script>
+      // if(window.indexedDB)
+
+      window.indexedDB =
+        window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
+
+      if (!window.indexedDB) {
+        alert("IndexedDB not supported !");
+      } else {
+        // connection
+        // DB Creation  
+        // Create Object Store
+        // Insert values (txn)
+        // Retreive values (txn)
+        var db;
+        let connection = window.indexedDB.open("moviesDB", 1); // IDBRequest
+        connection.onsuccess = function (e) {
+          db = e.target.result;
+          console.log("Connection Opened successfully !");
+        };
+        connection.onerror = function (e) {
+          console.log("Error opening the connection", e);
+        };
+        connection.onupgradeneeded = function (e) {
+          db = e.target.result; // access to the dastbase
+          var moviesOS = db.createObjectStore("movies"); // table / collection
+          moviesOS.createIndex("m_id", "id", { unique: true }); // createIndex(nameOfIndex,propertyNameFromObject,contraints)
+
+          var btnStoreMovie = document.querySelector("#btnStoreMovie");
+          btnStoreMovie.addEventListener("click", addMovieToStore);
+        };
+
+        function addMovieToStore() {
+          // adding the movie to store
+          var id = document.querySelector("#txtId").value;
+          var name = document.querySelector("#txtName").value;
+          var theatre = document.querySelector("#txtTheatre").value;
+          var budget = document.querySelector("#txtBudget").value;
+          var newMovie = { id, name, theatre, budget };
+          var txn = db.transaction(["movies"], "readwrite");7
+          var moviesOS = txn.objectStore("movies");
+          moviesOS.add(newMovie, id);
+        }
+
+        function RetreiveMovie() {
+          var txn = db.transaction(["movies"], "readonly");
+          var moviesOS = txn.objectStore("movies");
+          var id = document.querySelector("#txtId").value;
+          var req = moviesOS.get(id);
+          req.onsuccess = function (e) {
+            console.log(e.target.result);
+          };
+
+          req.onerror = function (e) {
+            console.log(e);
+          };
+        }
+      }
+    </script>
+  </body>
+</html>

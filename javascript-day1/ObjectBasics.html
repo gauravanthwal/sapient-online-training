@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*Literal Syntax*/
+      var player = {
+        name: "Neeraj Chopra",
+        country: "India",
+        isOlympicChampion: true,
+        sport: "Javelin",
+        getDetails: function () {
+          return "The player " + this.name + " represents " + this.country;
+        },
+      };
+      //   console.log(player.name);
+      //console.log(player["name"]); // associative array
+
+      //   for (var key in player) {
+      //     console.log(key + " : " + player[key]);
+      //   }
+
+      /* Object Object() */
+
+      var obj = new Object();
+      obj.name = "XYZ";
+      obj.location = "PQR";
+
+      /*Custom Constructor*/
+
+      function Employee(name, salary) {
+        this.name = name || "dummy";
+        this.salary = salary || 0;
+        this.getDetails = function () {
+          console.log(
+            "The employee " + this.name + " has " + this.salary + " salary !"
+          );
+        };
+      }
+
+      var emp = new Employee();
+      var anotheremp = new Employee("Amit", 200000);
+    </script>
+  </head>
+  <body></body>
+</html>

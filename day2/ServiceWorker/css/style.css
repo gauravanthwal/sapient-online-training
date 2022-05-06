@@ -1,0 +1,8 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+header{
+    background: #29645a;
+    color: #fff;
+    border: 3px solid #aaa;
+}

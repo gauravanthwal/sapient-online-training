@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section img {
+        height: 150px;
+        width: 200px;
+        border: 1px solid gray;
+        padding: 5px;
+        margin-left: 150px;
+      }
+
+      img:hover {
+        cursor: pointer;
+      }
+
+      #birdDetails {
+        border: 1px solid gray;
+        padding: 5px;
+        margin-left: 150px;
+        margin-right: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Creating SPA using History API !</h1>
+    </header>
+    <main>
+      <section>
+        <img
+          src="https://cdn.download.ams.birds.cornell.edu/api/v1/asset/220489371/1800"
+          alt="Hornbill"
+        /><img
+          src="https://images.unsplash.com/photo-1520638023360-6def43369781?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtbWluZ2JpcmR8ZW58MHx8MHx8&w=1000&q=80"
+          alt="Humming Bird"
+        /><img
+          src="https://cdn.download.ams.birds.cornell.edu/api/v1/asset/133932001/1800"
+          alt="Painted Stork"
+        />
+      </section>
+      <section id="birdDetails">
+        Please click the image to see the details !
+      </section>
+    </main>
+
+    <script>
+      var birds = [
+        {
+          id: 1,
+          name: "hornbill",
+          description:
+            "Hornbills are a family of bird found in tropical and subtropical Africa, Asia and Melanesia. They are characterized by a long, down-curved bill which is frequently brightly colored and sometimes has a casque on the upper mandible",
+        },
+        {
+          id: 2,
+          name: "hummingbird",
+          description:
+            "Hummingbirds are birds native to the Americas and comprise the biological family Trochilidae. With about 360 species, they occur from Alaska to Tierra del Fuego, but the vast majority of the species are found in the tropics. They are small birds, with most species measuring 7.5–13 cm in length. ",
+        },
+        {
+          id: 3,
+          name: "stork",
+          description:
+            "The painted stork is a large wader in the stork family. It is found in the wetlands of the plains of tropical Asia south of the Himalayas in the Indian Subcontinent and extending into Southeast Asia. Their distinctive pink tertial feathers of the adults give them their name.",
+        },
+      ];
+
+      var allImages = document.querySelectorAll("img");
+      for (let index = 0; index < allImages.length; index++) {
+        allImages[index].addEventListener("click", function () {
+          manageState(birds[index]);
+        });
+      }
+      function manageState(theBird) {
+        // pushState
+        window.history.pushState(theBird, theBird.name, theBird.name); // pushState(theData,title,url)
+        setBirdDetails(theBird);
+      }
+
+      function setBirdDetails(theBird) {
+        var birdDetails = document.querySelector("#birdDetails");
+        birdDetails.innerHTML = theBird.description;
+      }
+      window.addEventListener("popstate", function (e) {
+        // console.log(e.state);
+        setBirdDetails(e.state);
+      });
+    </script>
+  </body>
+</html>

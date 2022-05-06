@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100vh;
+        width: 100vw;
+        margin: 0px;
+        padding: 0px;
+      }
+      header,
+      footer {
+        display: none;
+      }
+
+      main {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      nav ul {
+        width: 100%;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+      }
+      ul li {
+        width: 100%;
+        padding: 10px;
+        background-color: orange;
+        border-bottom: 2px solid white;
+      }
+      .col-1 {
+        width: 100%;
+      }
+      .col-2 {
+        background-color: lightgreen;
+        width: 100%;
+        margin: 0px;
+        padding: 20px;
+      }
+
+      @media screen and (min-width: 768px) {
+        header,
+        footer {
+          display: block;
+        }
+        .mainFooter {
+          width: 100%;
+          padding: 20px;
+          background-color: darkgray;
+          text-align: center;
+        }
+
+        .mainHeader {
+          background-color: lightblue;
+          padding: 10px;
+          text-align: center;
+        }
+        .col-1 {
+          text-align: center;
+          width: 20%;
+        }
+        .col-2 {
+          text-align: center;
+
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="mainHeader">
+      <h1>Current Affairs</h1>
+    </header>
+    <main>
+      <nav class="col-1">
+        <ul>
+          <li>Home</li>
+          <li>News</li>
+          <li>Sport Center</li>
+          <li>World News</li>
+        </ul>
+      </nav>
+
+      <section class="col-2">
+        <header><h2>This is the News Center.</h2></header>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+        <p>News...</p>
+      </section>
+    </main>
+    <footer class="mainFooter">This is a footer !</footer>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Webinar {
+        participants = [];
+        subscribe(theParticipant) {
+          this.participants.push(theParticipant);
+        }
+
+        unsubscribe(theParticipant) {
+          this.participants = this.participants.filter(
+            (p) => p.id != theParticipant.id
+          );
+        }
+
+        execute(eventDetails) {
+          for (const p of this.participants) {
+            if (p.hasPaid) {
+              p.Handler(eventDetails);
+            } else {
+              p.Error("You cannot attend the session as status is unpaid !");
+            }
+          }
+        }
+      }
+
+      class Participant {
+        constructor(id, name, hasPaid) {
+          this.id = id;
+          this.name = name;
+          this.hasPaid = hasPaid;
+        }
+
+        Error(errDetails) {
+          console.log(`Hey ${this.name} ! ${errDetails}`);
+        }
+
+        Handler(eventDetails) {
+          console.log(`Hey ${this.name} ! ${eventDetails}`);
+        }
+      }
+
+      var jsWebinar = new Webinar();
+
+      var participantOne = new Participant(1, "Amit", true);
+      var participantTwo = new Participant(2, "Romit", false);
+      var participantThree = new Participant(3, "Shobit", true);
+
+      jsWebinar.subscribe(participantOne);
+      jsWebinar.subscribe(participantTwo);
+      jsWebinar.subscribe(participantThree);
+
+      // after some time
+      //   jsWebinar.unsubscribe(participantThree);
+
+      jsWebinar.execute("This is a JS Webinar");
+    </script>
+  </head>
+  <body></body>
+</html>

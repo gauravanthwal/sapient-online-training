@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   function Outer() {
+      //     console.log("Within Outer !");
+      //     var msg = "Within Inner !";
+      //     return function () {
+      //       console.log(msg);
+      //     };
+      //   }
+
+      //   var Inner = Outer();
+      //   Inner();
+
+      //   function Counter() {
+      //     var count = 1;
+      //     return function () {
+      //       console.log(count++);
+      //     };
+      //   }
+
+      //   var myCounter = Counter();
+      //   myCounter();
+      //   myCounter();
+      //   myCounter();
+      //   myCounter();
+
+      /*IIFE - Immediate Invocable Function Expression*/
+
+      (function () {
+        console.log("IIFE executed !");
+      })();
+
+      (function (x, y) {
+        console.log(x + y);
+      })(20, 30);
+
+      var MathModule = (function () {
+        function Add(x, y) {
+          return x + y;
+        }
+        function Product(x, y) {
+          return x * y;
+        }
+        return {
+          Add: Add,
+        };
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
