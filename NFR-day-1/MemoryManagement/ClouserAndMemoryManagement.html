@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      //   function Outer() {
+      //     var object = { msg: "This is a closure variable !" };
+      //     return function () {
+      //       console.log(object.msg);
+      //     };
+      //   }
+
+      //   var Inner = Outer();
+      //   // after 100 lines of code !
+      //   Inner();
+      //   Inner();
+      //   Inner();
+      //   Inner();
+
+      // Avoid
+      //   function Inner(o) {
+      //     console.log(o.msg);
+      //   }
+      //   function Outer() {
+      //     var object = { msg: "This is a closure variable !" };
+      //     Inner(object);
+      //   }
+
+      function Outer() {
+        var object = { msg: "This is a closure variable !" };
+        return function () {
+          console.log(object.msg);
+        };
+      }
+
+      Outer()(); // Function Currying !
+      Outer()(); // Function Currying !
+    </script>
+  </head>
+  <body></body>
+</html>
