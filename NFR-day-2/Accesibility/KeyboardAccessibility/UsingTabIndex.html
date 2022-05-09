@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>Using New Input Types</h1>
+    </header>
+    <main>
+      <form>
+        <label for="txtName">Name : </label>
+        <input
+          type="text"
+          id="txtName"
+          placeholder="Username goes here.."
+          required
+        />
+        <br />
+        <label>Password : <input type="text" id="txtPassword" /> </label><br />
+        <input type="radio" id="rdbYes" name="answer" />
+        <label for="rdbYes">Yes</label>
+        <input type="radio" id="rdbNo" name="answer" />
+        <label for="rdbNo">No</label> <br />
+
+        <label>Age : <input type="number" min="18" max="80" /> </label> <br />
+        <label> DoB : <input type="date" /> </label> <br />
+        <label
+          >DoB(pattern) :
+          <input
+            type="text"
+            pattern="\d\d-\d\d-\d\d\d\d"
+            placeholder="dd-mm-yyyy"
+          /> </label
+        ><br />
+        <label>Email : <input type="email" /> </label>
+        <br />
+
+        <label
+          >Fav Color :
+          <input
+            type="color"
+            id="txtColor"
+            onchange="txtName.style.backgroundColor=this.value"
+          />
+        </label>
+        <br />
+
+        <label>Salary : <input type="range" id="rangeSalary" 
+            value="30000" max="100000" step="5000" min="10000" onchange="outputSalary.value=this.value"> </label>
+
+        <output id="outputSalary"></output>
+        <br>
+        <label>Select a file : <input type="file" /> </label> <br />
+
+        <label>Completed (%) : <progress value="10" max="100" > </label> <br>
+
+          <label> Pollution Level :  <meter value="50" low="40" high="80" max="100"></meter></label>  <br>
+
+
+          <fieldset>
+              <legend>Billing Info :</legend>
+              <label >Street No. : <input type="number" name="" id=""> </label> <br>
+              <label >Building  No. : <input type="number" name="" id=""> </label> <br>
+              <label >Pin No. : <input type="number" name="" id=""> </label> <br>
+
+          </fieldset>
+
+
+        <!-- <input type="button" value="Button(input)" />
+        <input type="submit" value="Submit(input)" /> -->
+        <button>Submit</button>
+      </form>
+    </main>
+  </body>
+</html>
